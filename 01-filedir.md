@@ -133,7 +133,7 @@ data       north-pacific-gyre  solar.pdf
 Desktop    notes.txt           writing
 ~~~
 
-<img src="fig/homedir.png" alt="my Home Directory" />
+<img src="fig/vlad-homedir.png" alt="my Home Directory" />
 
 `ls` prints the names of the files and directories in the current directory in alphabetical order,
 arranged neatly into columns.
@@ -331,7 +331,7 @@ data/       notes.txt
 
 `-a` stands for "show all";
 it forces `ls` to show us file and directory names that begin with `.`,
-such as `..` (which, if we're in `/home/slayer`, refers to the `/users` directory).
+such as `..` (which, if we're in `/home/slayer`, refers to the `/home` directory).
 As you can see,
 it also displays another special directory that's just called `.`,
 which means "the current working directory".
@@ -353,7 +353,7 @@ but we'll see some uses for it soon.
 ### my Pipeline: Organizing Files
 
 Knowing just this much about files and directories,
-my is ready to organize the files that the protein assay machine will create.
+Nelle is ready to organize the files that the protein assay machine will create.
 First,
 she creates a directory called `north-pacific-gyre`
 (to remind herself where the data came from).
@@ -365,7 +365,7 @@ but she found them hard to understand after a couple of years.
 (The final straw was when she found herself creating
 a directory called `revised-revised-results-3`.)
 
-> my names her directories "year-month-day",
+> Nelle names her directories "year-month-day",
 > with leading zeroes for months and days,
 > because the shell displays file and directory names in alphabetical order.
 > If she used month names,
@@ -384,7 +384,7 @@ she will call her files `NENE01729A.txt`, `NENE01812A.txt`, and so on.
 All 1520 files will go into the same directory.
 
 If she is in her home directory,
-my can see what files she has using the command:
+Nelle can see what files she has using the command:
 
 ~~~ {.input}
 $ ls north-pacific-gyre/2012-07-03/
@@ -415,9 +415,11 @@ and so on.
 This is called **tab completion**,
 and we will see it in many other tools as we go on.
 
+## Use this file structure to complete the challenges below.
+
 <img src="fig/filesystem-challenge.png" alt="Filesystem for Challenge Questions" />
 
-> ## Relative path resolution {.challenge}
+> ## Relative path resolution challenge
 >
 > If `pwd` displays `/users/thing`, what will `ls ../backup` display?
 > 
@@ -426,7 +428,7 @@ and we will see it in many other tools as we go on.
 > 3.  `2012-12-01/ 2013-01-08/ 2013-01-27/`
 > 4.  `original pnas_final pnas_sub`
 
-> ## `ls` reading comprehension {.challenge}
+> ## `ls` reading comprehension challenge
 >
 > If `pwd` displays `/users/backup`,
 > and `-r` tells `ls` to display things in reverse order,
@@ -441,7 +443,7 @@ and we will see it in many other tools as we go on.
 > 3.  `ls -r -F /users/backup`
 > 4.  Either \#2 or \#3 above, but not \#1.
 
-> ## Default `cd` action {.challenge}
+> ## Default `cd` action challenge
 >
 > What does the command `cd` without a directory name do?
 > 
@@ -450,7 +452,7 @@ and we will see it in many other tools as we go on.
 > 3.  It changes the working directory to the user's home directory.
 > 4.  It produces an error message.
 
-> ## Exploring more `ls` arguments {.challenge}
+> ## Exploring more `ls` arguments challenge
 >
 > What does the command `ls` do when used with the `-s` and `-h`
 > arguments?
