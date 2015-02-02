@@ -61,7 +61,7 @@ However, there's nothing in it yet:
 $ ls -F thesis
 ~~~
 
-> ## Touching Files {.callout}
+> ## Touching Files 
 >
 > One of the simplest ways to create an empty file is via the `touch` command.
 > Change the working directory to `thesis` using `cd`,
@@ -89,7 +89,7 @@ $ cd thesis
 $ nano draft.txt
 ~~~
 
-> ## Which Editor? {.callout}
+> ## Which Editor? 
 > 
 > When we say, "`nano` is a text editor," we really do mean "text": it can
 > only work with plain character data, not tables, images, or any other
@@ -142,7 +142,7 @@ which tells us that our file is gone:
 $ ls
 ~~~
 
-> ## Deleting Is Forever {.callout}
+> ## Deleting Is Forever 
 > 
 > The Unix shell doesn't have a trash bin that we can recover deleted
 > files from (though most graphical interfaces to Unix do).  Instead,
@@ -209,7 +209,7 @@ The directory is now empty, so `rmdir` can delete it:
 $ rmdir thesis
 ~~~
 
-> ## With Great Power Comes Great Responsibility {.callout}
+> ## With Great Power Comes Great Responsibility 
 > 
 > Removing the files in a directory just so that we can remove the
 > directory quickly becomes tedious. Instead, we can use `rm` with the
@@ -269,7 +269,7 @@ quotes.txt
 ~~~
 
 Just for the sake of inconsistency,
-`mv` also works on directories --- there is no separate `mvdir` command.
+`mv` also works on directories--there is no separate `mvdir` command.
 
 Let's move `quotes.txt` into the current working directory.
 We use `mv` once again,
@@ -305,7 +305,7 @@ quotes.txt
 The `cp` command works very much like `mv`,
 except it copies a file instead of moving it.
 We can check that it did the right thing using `ls`
-with two paths as parameters --- like most Unix commands,
+with two paths as parameters--like most Unix commands,
 `ls` can be given thousands of paths at once:
 
 ~~~ {.input}
@@ -330,7 +330,7 @@ ls: cannot access quotes.txt: No such file or directory
 thesis/quotations.txt
 ~~~
 
-> ## Another Useful Abbreviation {.callout}
+> ## Another Useful Abbreviation 
 > 
 > The shell interprets the character `~` (tilde) at the start of a path to
 > mean "the current user's home directory". For example, if Nelle's home
@@ -338,7 +338,8 @@ thesis/quotations.txt
 > `/home/nelle/data`. This only works if it is the first character in the
 > path: `here/there/~/elsewhere` is *not* `/home/nelle/elsewhere`.
 
-> ## Moving and Copying {.challenge}
+---
+> ## Moving and Copying challenge
 > 
 > What is the output of the closing `ls` command in the sequence shown below?
 > 
@@ -358,7 +359,7 @@ thesis/quotations.txt
 > 3.   `proteins.dat recombine`
 > 4.   `proteins-saved.dat`
 
-> ## Listing Directories and Files {.challenge}
+> ## Listing Directories and Files challenge
 >
 > Suppose that:
 > 
@@ -376,7 +377,7 @@ thesis/quotations.txt
 > fructose.dat    sucrose.dat
 > ~~~
 
-> ## Copy with Multiple Filenames {.challenge}
+> ## Copy with Multiple Filenames challenge
 >
 > What does `cp` do when given several filenames and a directory name, as in:
 > 
@@ -393,7 +394,7 @@ thesis/quotations.txt
 > $ cp intro.txt methods.txt survey.txt
 > ~~~
 
-> ## Listing Recursively and By Time {.challenge}
+> ## Listing Recursively and By Time challenge
 >
 > The command `ls -R` lists the contents of directories recursively,
 > i.e., lists their sub-directories, sub-sub-directories, and so on
@@ -401,3 +402,8 @@ thesis/quotations.txt
 > The command `ls -t` lists things by time of last change,
 > with most recently changed files or directories first.
 > In what order does `ls -R -t` display things?
+
+---
+> ## Notes
+> *   The shell does not have a trash bin: once something is deleted, it's really gone.
+> *   Nano is a very simple text editor; please use something else for real work.
