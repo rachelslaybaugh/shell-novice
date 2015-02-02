@@ -456,3 +456,21 @@ and we will see it in many other tools as we go on.
 >
 > What does the command `ls` do when used with the `-s` and `-h`
 > arguments?
+
+---
+> ## Key Points
+> *   The file system is responsible for managing information on the disk.
+> *   Information is stored in files, which are stored in directories (folders).
+> *   Directories can also store other directories, which forms a directory tree.
+> *   `/` on its own is the root directory of the whole filesystem.
+> *   A relative path specifies a location starting from the current location.
+> *   An absolute path specifies a location from the root of the filesystem.
+> *   Directory names in a path are separated with '/' on Unix, but '\\' on Windows.
+> *   '..' means "the directory above the current one";
+    '.' on its own means "the current directory".
+> *   Most files' names are `something.extension`.
+    The extension isn't required,
+    and doesn't guarantee anything,
+    but is normally used to indicate the type of data in the file.
+> *   Most commands take options (flags) which begin with a '-'.
+
