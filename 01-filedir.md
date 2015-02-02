@@ -62,14 +62,14 @@ i.e.,
 the directory that the computer assumes we want to run commands in
 unless we explicitly specify something else.
 Here,
-the computer's response is `/home/slayer`,
-which is my **home directory**:
+the computer's response is `/users/nelle`,
+which is Nelle's **home directory**:
 
 ~~~ {.input}
 $ pwd
 ~~~
 ~~~ {.output}
-/home/slayer
+/users/nelle
 ~~~
 
 > ## Alphabet Soup 
@@ -90,7 +90,7 @@ let's have a look at how the file system as a whole is organized.
 At the top is the **root directory**
 that holds everything else.
 We refer to it using a slash character `/` on its own;
-this is the leading slash in `/home/slayer`.
+this is the leading slash in `/users/nelle`.
 
 Inside that directory are several other directories:
 `bin` (which is where some built-in programs are stored),
@@ -101,18 +101,18 @@ and so on:
 
 <img src="fig/filesystem.png" alt="The Filesystem" />
 
-We know that our current working directory `/home/slayer` is stored inside `/home`
-because `/home` is the first part of its name.
+We know that our current working directory `/users/nelle` is stored inside `/users`
+because `/users` is the first part of its name.
 Similarly,
-we know that `/home` is stored inside the root directory `/`
+we know that `/users` is stored inside the root directory `/`
 because its name begins with `/`.
 
-Underneath `/home`,
+Underneath `/users`,
 we find one directory for each user with an account on this machine.
 The Mummy's files are stored in `/users/mummy`,
 Wolfwoman's in `/users/wolfwoman`,
-and ours in `/home/slayer`,
-which is why `slayer` is the last part of the directory's name.
+and ours in `/users/nelle`,
+which is why `nelle` is the last part of the directory's name.
 
 <img src="fig/home-directories.png" alt="Home Directories" />
 
@@ -150,7 +150,7 @@ Desktop/    notes.txt            writing/
 ~~~
 
 Here,
-we can see that `/home/slayer` contains seven **sub-directories**.
+we can see that `/users/nelle` contains seven **sub-directories**.
 The names that don't have trailing slashes,
 like `notes.txt`, `pizza.cfg`, and `solar.pdf`,
 are plain old files.
@@ -161,7 +161,7 @@ which doesn't exist.
 
 > ## What's In A Name? 
 > 
-> You may have noticed that all of my files' names are "something dot
+> You may have noticed that all of Nelle's files' names are "something dot
 > something". This is just a convention: we can call a file `mythesis` or
 > almost anything else we want. However, most people use two-part names
 > most of the time to help them (and their programs) tell different kinds
@@ -180,7 +180,7 @@ which doesn't exist.
 > cause the operating system to try to open it with a music player
 > when someone double-clicks it.
 
-Now let's take a look at what's in my `data` directory by running `ls -F data`,
+Now let's take a look at what's in Nelle's `data` directory by running `ls -F data`,
 i.e.,
 the command `ls` with the **arguments** `-F` and `data`.
 The second argument--the one *without* a leading dash--tells `ls` that
@@ -234,14 +234,14 @@ no matter where we are when we run the command.
 
 What if we want to change our current working directory?
 Before we do this,
-`pwd` shows us that we're in `/home/slayer`,
+`pwd` shows us that we're in `/users/nelle`,
 and `ls` without any arguments shows us that directory's contents:
 
 ~~~ {.input}
 $ pwd
 ~~~
 ~~~ {.output}
-/home/slayer
+/users/nelle
 ~~~
 ~~~ {.input}
 $ ls
@@ -263,16 +263,16 @@ $ cd data
 ~~~
 
 `cd` doesn't print anything,
-but if we run `pwd` after it, we can see that we are now in `/home/slayer/data`.
+but if we run `pwd` after it, we can see that we are now in `/users/nelle/data`.
 If we run `ls` without arguments now,
-it lists the contents of `/home/slayer/data`,
+it lists the contents of `/users/nelle/data`,
 because that's where we now are:
 
 ~~~ {.input}
 $ pwd
 ~~~
 ~~~ {.output}
-/home/slayer/data
+/users/nelle/data
 ~~~
 ~~~ {.input}
 $ ls -F
@@ -287,7 +287,7 @@ how do we go up?
 We could use an absolute path:
 
 ~~~ {.input}
-$ cd /home/slayer
+$ cd /users/nelle
 ~~~
 
 but it's almost always simpler to use `cd ..` to go up one level:
@@ -296,7 +296,7 @@ but it's almost always simpler to use `cd ..` to go up one level:
 $ pwd
 ~~~
 ~~~ {.output}
-/home/slayer/data
+/users/nelle/data
 ~~~
 ~~~ {.input}
 $ cd ..
@@ -307,13 +307,13 @@ $ cd ..
 or more succinctly,
 the **parent** of the current directory.
 Sure enough,
-if we run `pwd` after running `cd ..`, we're back in `/home/slayer`:
+if we run `pwd` after running `cd ..`, we're back in `/users/nelle`:
 
 ~~~ {.input}
 $ pwd
 ~~~
 ~~~ {.output}
-/home/slayer
+/users/nelle
 ~~~
 
 The special directory `..` doesn't usually show up when we run `ls`.
@@ -331,7 +331,7 @@ data/       notes.txt
 
 `-a` stands for "show all";
 it forces `ls` to show us file and directory names that begin with `.`,
-such as `..` (which, if we're in `/home/slayer`, refers to the `/home` directory).
+such as `..` (which, if we're in `/users/nelle`, refers to the `/users` directory).
 As you can see,
 it also displays another special directory that's just called `.`,
 which means "the current working directory".
@@ -343,14 +343,14 @@ but we'll see some uses for it soon.
 > The special names `.` and `..` don't belong to `ls`;
 > they are interpreted the same way by every program.
 > For example,
-> if we are in `/home/slayer/data`,
-> the command `ls ..` will give us a listing of `/home/slayer`.
+> if we are in `/users/nelle/data`,
+> the command `ls ..` will give us a listing of `/users/nelle`.
 > When the meanings of the parts are the same no matter how they're combined,
 > programmers say they are **orthogonal**:
 > Orthogonal systems tend to be easier for people to learn
 > because there are fewer special cases and exceptions to keep track of.
 
-### my Pipeline: Organizing Files
+### Nelle's Pipeline: Organizing Files
 
 Knowing just this much about files and directories,
 Nelle is ready to organize the files that the protein assay machine will create.
