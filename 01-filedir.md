@@ -72,7 +72,7 @@ $ pwd
 /home/slayer
 ~~~
 
-> ## Alphabet Soup {.callout}
+> ## Alphabet Soup 
 > 
 > If the command to find out who we are is `whoami`, the command to find
 > out where we are ought to be called `whereami`, so why is it `pwd`
@@ -101,27 +101,27 @@ and so on:
 
 <img src="fig/filesystem.png" alt="The Filesystem" />
 
-We know that our current working directory `/home/slayer` is stored inside `/users`
-because `/users` is the first part of its name.
+We know that our current working directory `/home/slayer` is stored inside `/home`
+because `/home` is the first part of its name.
 Similarly,
-we know that `/users` is stored inside the root directory `/`
+we know that `/home` is stored inside the root directory `/`
 because its name begins with `/`.
 
-Underneath `/users`,
+Underneath `/home`,
 we find one directory for each user with an account on this machine.
-The Mummy's files are stored in `/users/imhotep`,
-Wolfman's in `/users/larry`,
+The Mummy's files are stored in `/users/mummy`,
+Wolfwoman's in `/users/wolfwoman`,
 and ours in `/home/slayer`,
-which is why `nelle` is the last part of the directory's name.
+which is why `slayer` is the last part of the directory's name.
 
-<img src="fig/home-directories.svg" alt="Home Directories" />
+<img src="fig/home-directories.png" alt="Home Directories" />
 
 > Notice that there are two meanings for the `/` character.
 > When it appears at the front of a file or directory name,
 > it refers to the root directory. When it appears *inside* a name,
 > it's just a separator.
 
-Let's see what's in Nelle's home directory by running `ls`,
+Let's see what's in my home directory by running `ls`,
 which stands for "listing":
 
 ~~~ {.input}
@@ -133,7 +133,7 @@ data       north-pacific-gyre  solar.pdf
 Desktop    notes.txt           writing
 ~~~
 
-<img src="fig/homedir.svg" alt="Nelle's Home Directory" />
+<img src="fig/homedir.png" alt="my Home Directory" />
 
 `ls` prints the names of the files and directories in the current directory in alphabetical order,
 arranged neatly into columns.
@@ -159,9 +159,9 @@ without it,
 the shell thinks we're trying to run a command called `ls-F`,
 which doesn't exist.
 
-> ## What's In A Name? {.callout}
+> ## What's In A Name? 
 > 
-> You may have noticed that all of Nelle's files' names are "something dot
+> You may have noticed that all of my files' names are "something dot
 > something". This is just a convention: we can call a file `mythesis` or
 > almost anything else we want. However, most people use two-part names
 > most of the time to help them (and their programs) tell different kinds
@@ -180,10 +180,10 @@ which doesn't exist.
 > cause the operating system to try to open it with a music player
 > when someone double-clicks it.
 
-Now let's take a look at what's in Nelle's `data` directory by running `ls -F data`,
+Now let's take a look at what's in my `data` directory by running `ls -F data`,
 i.e.,
 the command `ls` with the **arguments** `-F` and `data`.
-The second argument --- the one *without* a leading dash --- tells `ls` that
+The second argument--the one *without* a leading dash--tells `ls` that
 we want a listing of something other than our current working directory:
 
 ~~~ {.input}
@@ -207,7 +207,7 @@ And it doesn't begin with a slash because it's a **relative path**,
 i.e., it tells `ls` how to find something from where we are,
 rather than from the root of the file system.
 
-> ## Parameters vs. Arguments {.callout}
+> ## Parameters vs. Arguments 
 >
 > According to [Wikipedia](https://en.wikipedia.org/wiki/Parameter_(computer_programming)#Parameters_and_arguments),
 > the terms argument and **parameter**
@@ -338,7 +338,7 @@ which means "the current working directory".
 It may seem redundant to have a name for it,
 but we'll see some uses for it soon.
 
-> ## Orthogonality {.callout}
+> ## Orthogonality 
 > 
 > The special names `.` and `..` don't belong to `ls`;
 > they are interpreted the same way by every program.
@@ -350,10 +350,10 @@ but we'll see some uses for it soon.
 > Orthogonal systems tend to be easier for people to learn
 > because there are fewer special cases and exceptions to keep track of.
 
-### Nelle's Pipeline: Organizing Files
+### my Pipeline: Organizing Files
 
 Knowing just this much about files and directories,
-Nelle is ready to organize the files that the protein assay machine will create.
+my is ready to organize the files that the protein assay machine will create.
 First,
 she creates a directory called `north-pacific-gyre`
 (to remind herself where the data came from).
@@ -365,7 +365,7 @@ but she found them hard to understand after a couple of years.
 (The final straw was when she found herself creating
 a directory called `revised-revised-results-3`.)
 
-> Nelle names her directories "year-month-day",
+> my names her directories "year-month-day",
 > with leading zeroes for months and days,
 > because the shell displays file and directory names in alphabetical order.
 > If she used month names,
@@ -384,7 +384,7 @@ she will call her files `NENE01729A.txt`, `NENE01812A.txt`, and so on.
 All 1520 files will go into the same directory.
 
 If she is in her home directory,
-Nelle can see what files she has using the command:
+my can see what files she has using the command:
 
 ~~~ {.input}
 $ ls north-pacific-gyre/2012-07-03/
@@ -415,7 +415,7 @@ and so on.
 This is called **tab completion**,
 and we will see it in many other tools as we go on.
 
-<img src="fig/filesystem-challenge.svg" alt="Filesystem for Challenge Questions" />
+<img src="fig/filesystem-challenge.png" alt="Filesystem for Challenge Questions" />
 
 > ## Relative path resolution {.challenge}
 >
