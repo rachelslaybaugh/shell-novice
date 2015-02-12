@@ -48,7 +48,7 @@ $ wc *.pdb
  107  819 6081 total
 ~~~
 
-> ## Wildcards {.callout}
+> ## Wildcards  
 > 
 > `*` is a **wildcard**. It matches zero or more
 > characters, so `*.pdb` matches `ethane.pdb`, `propane.pdb`, and so on.
@@ -274,7 +274,7 @@ can be combined with every other program that behaves this way as well.
 You can *and should* write your programs this way
 so that you and other people can put those programs into pipes to multiply their power.
 
-> ## Redirecting Input {.callout}
+> ## Redirecting Input  
 > 
 > As well as using `>` to redirect a program's output, we can use `<` to
 > redirect its input, i.e., to read from a file instead of from standard
@@ -366,7 +366,9 @@ the '\*' matches any number of characters;
 the expression `[AB]` matches either an 'A' or a 'B',
 so this matches all the valid data files she has.
 
-> ## What does `sort -n` do? {.challenge}
+## Complete the challenges below.
+
+> ## What does `sort -n` do?  
 >
 > If we run `sort` on this file:
 > 
@@ -400,7 +402,7 @@ so this matches all the valid data files she has.
 > 
 > Explain why `-n` has this effect.
 
-> ## What does `<` mean? {.challenge}
+> ## What does `<` mean?  
 >
 > What is the difference between:
 > 
@@ -414,7 +416,7 @@ so this matches all the valid data files she has.
 > wc -l mydata.dat
 > ~~~
 
-> ## Why does `uniq` only remove adjacent duplicates? {.challenge}
+> ## Why does `uniq` only remove adjacent duplicates?  
 >
 > The command `uniq` removes adjacent duplicated lines from its input.
 > For example, if a file `salmon.txt` contains:
@@ -441,7 +443,7 @@ so this matches all the valid data files she has.
 > (Hint: think about very large data sets.) What other command could
 > you combine with it in a pipe to remove all duplicated lines?
 
-> ## Pipe reading comprehension {.challenge}
+> ## Pipe reading comprehension  
 >
 > A file called `animals.txt` contains the following data:
 > 
@@ -462,7 +464,7 @@ so this matches all the valid data files she has.
 > cat animals.txt | head -5 | tail -3 | sort -r > final.txt
 > ~~~
 
-> ## Pipe construction {.challenge}
+> ## Pipe construction  
 >
 > The command:
 > 
