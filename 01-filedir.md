@@ -99,11 +99,7 @@ Inside that directory are several other directories:
 `tmp` (for temporary files that don't need to be stored long-term),
 and so on:
 
-<<<<<<< HEAD
 <img src="fig/filesystem.png" alt="The Filesystem" />
-=======
-![The Filesystem](fig/filesystem.svg)
->>>>>>> upstream/gh-pages
 
 We know that our current working directory `/users/nelle` is stored inside `/users`
 because `/users` is the first part of its name.
@@ -118,11 +114,7 @@ Wolfwoman's in `/users/wolfwoman`,
 and ours in `/users/nelle`,
 which is why `nelle` is the last part of the directory's name.
 
-<<<<<<< HEAD
 <img src="fig/home-directories.png" alt="Home Directories" />
-=======
-![Home Directories](fig/home-directories.svg)
->>>>>>> upstream/gh-pages
 
 > Notice that there are two meanings for the `/` character.
 > When it appears at the front of a file or directory name,
@@ -141,11 +133,7 @@ data       north-pacific-gyre  solar.pdf
 Desktop    notes.txt           writing
 ~~~
 
-<<<<<<< HEAD
 <img src="fig/vlad-homedir.png" alt="my Home Directory" />
-=======
-![Nelle's Home Directory](fig/homedir.svg)
->>>>>>> upstream/gh-pages
 
 `ls` prints the names of the files and directories in the current directory in alphabetical order,
 arranged neatly into columns.
@@ -430,11 +418,7 @@ and so on.
 This is called **tab completion**,
 and we will see it in many other tools as we go on.
 
-<<<<<<< HEAD
 ## Use this file structure to complete the challenges below.
-=======
-![Filesystem for Challange Questions](fig/filesystem-challenge.svg)
->>>>>>> upstream/gh-pages
 
 <img src="fig/filesystem-challenge.png" alt="Filesystem for Challenge Questions" />
 
