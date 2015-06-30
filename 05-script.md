@@ -21,7 +21,7 @@ these are actually small programs.
 
 Let's start by going back to `molecules/` and putting the following line in the file `middle.sh`:
 
-~~~ {.input}
+~~~ 
 $ cd molecules
 $ cat middle.sh
 ~~~
@@ -38,10 +38,10 @@ Once we have saved the file,
 we can ask the shell to execute the commands it contains.
 Our shell is called `bash`, so we run the following command:
 
-~~~ {.input}
+~~~ 
 $ bash middle.sh
 ~~~
-~~~ {.output}
+~~~ 
 ATOM      9  H           1      -4.502   0.681   0.785  1.00  0.00
 ATOM     10  H           1      -5.254  -0.243  -0.537  1.00  0.00
 ATOM     11  H           1      -4.357   1.252  -0.895  1.00  0.00
@@ -52,7 +52,7 @@ ATOM     13  H           1      -3.172  -1.337   0.206  1.00  0.00
 Sure enough,
 our script's output is exactly what we would get if we ran that pipeline directly.
 
-> ## Text vs. Whatever {.callout}
+> ## Text vs. Whatever 
 >
 > We usually call programs like Microsoft Word or LibreOffice Writer "text
 > editors", but we need to be a bit more careful when it comes to
@@ -70,10 +70,10 @@ but that would probably take longer than just retyping the command.
 Instead,
 let's edit `middle.sh` and replace `octane.pdb` with a special variable called `$1`:
 
-~~~ {.input}
+~~~ 
 $ cat middle.sh
 ~~~
-~~~ {.output}
+~~~ 
 head -20 "$1" | tail -5
 ~~~
 
@@ -81,10 +81,10 @@ Inside a shell script,
 `$1` means "the first filename (or other parameter) on the command line".
 We can now run our script like this:
 
-~~~ {.input}
+~~~ 
 $ bash middle.sh octane.pdb
 ~~~
-~~~ {.output}
+~~~ 
 ATOM      9  H           1      -4.502   0.681   0.785  1.00  0.00
 ATOM     10  H           1      -5.254  -0.243  -0.537  1.00  0.00
 ATOM     11  H           1      -4.357   1.252  -0.895  1.00  0.00
@@ -94,10 +94,10 @@ ATOM     13  H           1      -3.172  -1.337   0.206  1.00  0.00
 
 or on a different file like this:
 
-~~~ {.input}
+~~~ 
 $ bash middle.sh pentane.pdb
 ~~~
-~~~ {.output}
+~~~ 
 ATOM      9  H           1       1.324   0.350  -1.332  1.00  0.00
 ATOM     10  H           1       1.271   1.378   0.122  1.00  0.00
 ATOM     11  H           1      -0.074  -0.384   1.288  1.00  0.00
@@ -106,7 +106,7 @@ ATOM     13  H           1      -1.183   0.500  -1.412  1.00  0.00
 ~~~
 
 
-> ## Double-Quotes Around Arguments {.callout}
+> ## Double-Quotes Around Arguments 
 >
 > We put the `$1` inside of double-quotes in case the filename happens to contain any spaces.
 > The shell uses whitespace to separate arguments,
@@ -125,16 +125,16 @@ We still need to edit `middle.sh` each time we want to adjust the range of lines
 though.
 Let's fix that by using the special variables `$2` and `$3`:
 
-~~~ {.input}
+~~~ 
 $ cat middle.sh
 ~~~
-~~~ {.output}
+~~~ 
 head "$2" "$1" | tail "$3"
 ~~~
-~~~ {.input}
+~~~ 
 $ bash middle.sh pentane.pdb -20 -5
 ~~~
-~~~ {.output}
+~~~ 
 ATOM     14  H           1      -1.259   1.420   0.112  1.00  0.00
 ATOM     15  H           1      -2.608  -0.407   1.130  1.00  0.00
 ATOM     16  H           1      -2.540  -1.303  -0.404  1.00  0.00
@@ -146,10 +146,10 @@ This works,
 but it may take the next person who reads `middle.sh` a moment to figure out what it does.
 We can improve our script by adding some **comments** at the top:
 
-~~~ {.input}
+~~~ 
 $ cat middle.sh
 ~~~
-~~~ {.output}
+~~~ 
 # Select lines from the middle of a file.
 # Usage: middle.sh filename -end_line -num_lines
 head "$2" "$1" | tail "$3"
@@ -162,7 +162,7 @@ but they're invaluable for helping people understand and use scripts.
 What if we want to process many files in a single pipeline?
 For example, if we want to sort our `.pdb` files by length, we would type:
 
-~~~ {.input}
+~~~ 
 $ wc -l *.pdb | sort -n
 ~~~
 
@@ -183,16 +183,16 @@ to handle the case of parameters containing spaces
 (`"$@"` is equivalent to `"$1"` `"$2"` ...)
 Here's an example:
 
-~~~ {.input}
+~~~ 
 $ cat sorted.sh
 ~~~
-~~~ {.output}
+~~~ 
 wc -l "$@" | sort -n
 ~~~
-~~~ {.input}
+~~~ 
 $ bash sorted.sh *.pdb ../creatures/*.dat
 ~~~
-~~~ {.output}
+~~~ 
 9 methane.pdb
 12 ethane.pdb
 15 propane.pdb
@@ -203,7 +203,7 @@ $ bash sorted.sh *.pdb ../creatures/*.dat
 163 ../creatures/unicorn.dat
 ~~~
 
-> ## Why Isn't It Doing Anything? {.callout}
+> ## Why Isn't It Doing Anything? 
 >
 > What happens if a script is supposed to process a bunch of files, but we
 > don't give it any filenames? For example, what if we type:
@@ -253,7 +253,7 @@ Instead of typing them in again
 (and potentially getting them wrong)
 we can do this:
 
-~~~ {.input}
+~~~ 
 $ history | tail -4 > redo-figure-3.sh
 ~~~
 
@@ -269,7 +269,7 @@ The file `redo-figure-3.sh` now contains:
 After a moment's work in an editor to remove the serial numbers on the commands,
 we have a completely accurate record of how we created that figure.
 
-> ## Unnumbering {.callout}
+> ## Unnumbering 
 >
 > Nelle could also use `colrm` (short for "column removal") to remove the
 > serial numbers on her previous commands.
@@ -324,13 +324,13 @@ done
 She saves this in a file called `do-stats.sh`
 so that she can now re-do the first stage of her analysis by typing:
 
-~~~ {.input}
+~~~ 
 $ bash do-stats.sh *[AB].txt
 ~~~
 
 She can also do this:
 
-~~~ {.input}
+~~~ 
 $ bash do-stats.sh *[AB].txt | wc -l
 ~~~
 
@@ -361,7 +361,7 @@ she could modify her script to check for command-line parameters,
 and use `*[AB].txt` if none were provided.
 Of course, this introduces another tradeoff between flexibility and complexity.
 
-> ## Variables in shell scripts {.challenge}
+> ## Variables in shell scripts 
 >
 > In the molecules directory, you have a shell script called `script.sh` containing the 
 > following commands:
@@ -385,7 +385,7 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 > 3. The first and the last line of each file in the molecules directory
 > 4. An error because of the quotes around `*.pdb`
 
-> ## List unique species {.challenge}
+> ## List unique species 
 > 
 > Leah has several hundred data files, each of which is formatted like this:
 > 
@@ -405,7 +405,7 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 > `uniq` to print a list of the unique species appearing in each of
 > those files separately.
 
-> ## Find the longest file with a given extension {.challenge}
+> ## Find the longest file with a given extension 
 > 
 > Write a shell script called `longest.sh` that takes the name of a
 > directory and a filename extension as its parameters, and prints
@@ -419,7 +419,7 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 > would print the name of the `.pdb` file in `/tmp/data` that has
 > the most lines.
 
-> ## Why record commands in the history before running them? {.challenge}
+> ## Why record commands in the history before running them? 
 > 
 > If you run the command:
 > 
@@ -432,7 +432,7 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 > running it. In fact, the shell *always* adds commands to the log
 > before running them. Why do you think it does this?
 
-> ## Script reading comprehension {.challenge}
+> ## Script reading comprehension 
 > 
 > Joel's `data` directory contains three files: `fructose.dat`,
 > `glucose.dat`, and `sucrose.dat`. Explain what a script called
