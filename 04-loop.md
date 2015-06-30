@@ -19,41 +19,42 @@ Suppose we have several hundred genome data files named `basilisk.dat`, `unicorn
 In this example,
 we'll use the `creatures` directory which only has two example files,
 but the principles can be applied to many many more files at once.
-When new files arrive,
-we'd like to rename the existing ones to `original-basilisk.dat` and `original-unicorn.dat`.
+We would like to modify these files, but also save a version of the original files and rename them 
+as `original-basilisk.dat` and `original-unicorn.dat`.
 We can't use:
 
-~~~ {.input}
+~~~ 
 $ mv *.dat original-*.dat
 ~~~
 
 because that would expand to:
 
-~~~ {.input}
+~~~ 
 $ mv basilisk.dat unicorn.dat original-*.dat
 ~~~
 
 This wouldn't back up our files, instead we get an error
 
-~~~ {.error}
+~~~ 
 mv: target `original-*.dat' is not a directory
 ~~~
 
-This is because there are no files matching the wildcard `original-*.dat`.
-In this case,
-Bash passes the unexpanded wildcard as a parameter to the `mv` command.
+This a problem arises when `mv` receives more than two inputs. When this happens, it 
+expects the last input to be a directory where it can move all the files it was passed to. 
+Since there is no directory named `original-*.dat` in the `creatures` directory we get an 
+error.
 
 Instead, we can use a **loop**
 to do some operation once for each thing in a list.
 Here's a simple example that displays the first three lines of each file in turn:
 
-~~~ {.input}
+~~~ 
 $ for filename in basilisk.dat unicorn.dat
 > do
 >    head -3 $filename
 > done
 ~~~
-~~~ {.output}
+~~~ 
 COMMON NAME: basilisk
 CLASSIFICATION: basiliscus vulgaris
 UPDATED: 1745-05-02
@@ -85,7 +86,7 @@ Finally,
 the command that's actually being run is our old friend `head`,
 so this loop prints out the first three lines of each data file in turn.
 
-> ## Follow the Prompt {.callout}
+> ## Follow the Prompt 
 >
 > The shell prompt changes from `$` to `>` and back again as we were
 > typing in our loop. The second prompt, `>`, is different to remind
@@ -96,7 +97,7 @@ in order to make its purpose clearer to human readers.
 The shell itself doesn't care what the variable is called;
 if we wrote this loop as:
 
-~~~ {.input}
+~~~ 
 for x in basilisk.dat unicorn.dat
 do
     head -3 $x
@@ -105,7 +106,7 @@ done
 
 or:
 
-~~~ {.input}
+~~~ 
 for temperature in basilisk.dat unicorn.dat
 do
     head -3 $temperature
@@ -120,7 +121,7 @@ increase the odds that the program won't do what its readers think it does.
 
 Here's a slightly more complicated loop:
 
-~~~ {.input}
+~~~ 
 for filename in *.dat
 do
     echo $filename
@@ -134,13 +135,13 @@ then executes two commands for each of those files.
 The first, `echo`, just prints its command-line parameters to standard output.
 For example:
 
-~~~ {.input}
+~~~ 
 $ echo hello there
 ~~~
 
 prints:
 
-~~~ {.output}
+~~~ 
 hello there
 ~~~
 
@@ -149,7 +150,7 @@ since the shell expands `$filename` to be the name of a file,
 `echo $filename` just prints the name of the file.
 Note that we can't write this as:
 
-~~~ {.input}
+~~~ 
 for filename in *.dat
 do
     $filename
@@ -162,7 +163,7 @@ when `$filename` expanded to `basilisk.dat`, the shell would try to run `basilis
 Finally,
 the `head` and `tail` combination selects lines 81-100 from whatever file is being processed.
 
-> ## Spaces in Names {.callout}
+> ## Spaces in Names 
 > 
 > Filename expansion in loops is another reason you should not use spaces in filenames.
 > Suppose our data files are named:
@@ -218,7 +219,7 @@ the `head` and `tail` combination selects lines 81-100 from whatever file is bei
 Going back to our original file renaming problem,
 we can solve it using this loop:
 
-~~~ {.input}
+~~~ 
 for filename in *.dat
 do
     mv $filename original-$filename
@@ -230,17 +231,17 @@ The first time,
 when `$filename` expands to `basilisk.dat`,
 the shell executes:
 
-~~~ {.input}
+~~~ 
 mv basilisk.dat original-basilisk.dat
 ~~~
 
 The second time, the command is:
 
-~~~ {.input}
+~~~ 
 mv unicorn.dat original-unicorn.dat
 ~~~
 
-> ## Measure Twice, Run Once {.callout}
+> ## Measure Twice, Run Once 
 > 
 > A loop is a way to do many things at once --- or to make many mistakes at
 > once if it does the wrong thing. One way to check what a loop *would* do
@@ -275,14 +276,14 @@ she decides to build up the required commands in stages.
 Her first step is to make sure that she can select the right files --- remember,
 these are ones whose names end in 'A' or 'B', rather than 'Z':
 
-~~~ {.input}
+~~~ 
 $ cd north-pacific-gyre/2012-07-03
 $ for datafile in *[AB].txt
 > do
 >     echo $datafile
 > done
 ~~~
-~~~ {.output}
+~~~ 
 NENE01729A.txt
 NENE01729B.txt
 NENE01736A.txt
@@ -296,13 +297,13 @@ what to call the files that the `goostats` analysis program will create.
 Prefixing each input file's name with "stats" seems simple,
 so she modifies her loop to do that:
 
-~~~ {.input}
+~~~ 
 $ for datafile in *[AB].txt
 > do
 >     echo $datafile stats-$datafile
 > done
 ~~~
-~~~ {.output}
+~~~ 
 NENE01729A.txt stats-NENE01729A.txt
 NENE01729B.txt stats-NENE01729B.txt
 NENE01736A.txt stats-NENE01736A.txt
@@ -323,14 +324,14 @@ In response,
 the shell redisplays the whole loop on one line
 (using semi-colons to separate the pieces):
 
-~~~ {.input}
+~~~ 
 $ for datafile in *[AB].txt; do echo $datafile stats-$datafile; done
 ~~~
 
 Using the left arrow key,
 Nelle backs up and changes the command `echo` to `goostats`:
 
-~~~ {.input}
+~~~ 
 $ for datafile in *[AB].txt; do bash goostats $datafile stats-$datafile; done
 ~~~
 
@@ -343,11 +344,11 @@ She kills the job by typing Control-C,
 uses up-arrow to repeat the command,
 and edits it to read:
 
-~~~ {.input}
+~~~ 
 $ for datafile in *[AB].txt; do echo $datafile; bash goostats $datafile stats-$datafile; done
 ~~~
 
-> ## Beginning and End {.callout}
+> ## Beginning and End 
 >
 > We can move to the beginning of a line in the shell by typing `^A`
 > (which means Control-A)
@@ -356,7 +357,7 @@ $ for datafile in *[AB].txt; do echo $datafile; bash goostats $datafile stats-$d
 When she runs her program now,
 it produces one line of output every five seconds or so:
 
-~~~ {.output}
+~~~ 
 NENE01729A.txt
 NENE01729B.txt
 NENE01736A.txt
@@ -374,7 +375,7 @@ to examine one of the output files.
 It looks good,
 so she decides to get some coffee and catch up on her reading.
 
-> ## Those Who Know History Can Choose to Repeat It {.callout}
+> ## Those Who Know History Can Choose to Repeat It 
 > 
 > Another way to repeat previous work is to use the `history` command to
 > get a list of the last few hundred commands that have been executed, and
@@ -393,7 +394,7 @@ so she decides to get some coffee and catch up on her reading.
 > then she can re-run `goostats` on `NENE01729B.txt` simply by typing
 > `!458`.
 
-> ## FIXME {.challenge}
+> ## Variables in loops 
 > 
 > Suppose that `ls` initially displays:
 > 
@@ -409,82 +410,19 @@ so she decides to get some coffee and catch up on her reading.
 >     ls *.dat
 > done
 > ~~~
+>
+> Now, what is the output of:
+>
+> ~~~
+> for datafile in *.dat
+> do
+>	ls $datafile
+> done
+> ~~~
+>
+> Why do these two loops give you different outputs?
 
-> ## FIXME {.challenge}
->
-> In the same directory, what is the effect of this loop?
-> 
-> ~~~
-> for sugar in *.dat
-> do
->     echo $sugar
->     cat $sugar > xylose.dat
-> done
-> ~~~
-> 
-> 1.  Prints `fructose.dat`, `glucose.dat`, and `sucrose.dat`, and
->     copies `sucrose.dat` to create `xylose.dat`.
-> 2.  Prints `fructose.dat`, `glucose.dat`, and `sucrose.dat`, and
->     concatenates all three files to create `xylose.dat`.
-> 3.  Prints `fructose.dat`, `glucose.dat`, `sucrose.dat`, and
->     `xylose.dat`, and copies `sucrose.dat` to create `xylose.dat`.
-> 4.  None of the above.
-
-> ## Doing a Dry Run {.challenge}
->
-> Suppose we want to preview the commands the following loop will execute
-> without actually running those commands:
->
-> ~~~ {.input}
-> for file in *.dat
-> do
->   analyze $file > analyzed-$file
-> done
-> ~~~
->
-> What is the difference between the the two loops below, and which one would we
-> want to run?
->
-> ~~~ {.input}
-> # Version 1
-> for file in *.dat
-> do
->   echo analyze $file > analyzed-$file
-> done
-> ~~~
->
-> ~~~ {.input}
-> # Version 2
-> for file in *.dat
-> do
->   echo "analyze $file > analyzed-$file"
-> done
-> ~~~
-
-> ## FIXME {.challenge}
->
-> The `expr` does simple arithmetic using command-line parameters:
-> 
-> ~~~
-> $ expr 3 + 5
-> 8
-> $ expr 30 / 5 - 2
-> 4
-> ~~~
-> 
-> Given this, what is the output of:
-> 
-> ~~~
-> for left in 2 3
-> do
->     for right in $left
->     do
->         expr $left + $right
->     done
-> done
-> ~~~
-
-> ## FIXME {.challenge}
+> ## Saving to a file in a loop - part one 
 > 
 > Describe in words what the following loop does.
 > 

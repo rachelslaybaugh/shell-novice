@@ -24,7 +24,7 @@ Several commands are frequently used to create, inspect, rename, and delete file
 To start exploring them,
 let's open a shell window:
 
-~~~ {.input}
+~~~ 
 $
 ~~~
 
@@ -38,11 +38,11 @@ The command's output is the ID of the current user,
 i.e.,
 it shows us who the shell thinks we are:
 
-~~~ {.input}
+~~~ 
 $ whoami
 ~~~
-~~~ {.output}
-slayer
+~~~ 
+nelle
 ~~~
 
 More specifically, when we type `whoami` the shell:
@@ -65,10 +65,10 @@ Here,
 the computer's response is `/users/nelle`,
 which is Nelle's **home directory**:
 
-~~~ {.input}
+~~~ 
 $ pwd
 ~~~
-~~~ {.output}
+~~~ 
 /users/nelle
 ~~~
 
@@ -99,7 +99,11 @@ Inside that directory are several other directories:
 `tmp` (for temporary files that don't need to be stored long-term),
 and so on:
 
+<<<<<<< HEAD
 <img src="fig/filesystem.png" alt="The Filesystem" />
+=======
+![The Filesystem](fig/filesystem.svg)
+>>>>>>> upstream/gh-pages
 
 We know that our current working directory `/users/nelle` is stored inside `/users`
 because `/users` is the first part of its name.
@@ -114,7 +118,11 @@ Wolfwoman's in `/users/wolfwoman`,
 and ours in `/users/nelle`,
 which is why `nelle` is the last part of the directory's name.
 
+<<<<<<< HEAD
 <img src="fig/home-directories.png" alt="Home Directories" />
+=======
+![Home Directories](fig/home-directories.svg)
+>>>>>>> upstream/gh-pages
 
 > Notice that there are two meanings for the `/` character.
 > When it appears at the front of a file or directory name,
@@ -124,26 +132,30 @@ which is why `nelle` is the last part of the directory's name.
 Let's see what's in my home directory by running `ls`,
 which stands for "listing":
 
-~~~ {.input}
+~~~ 
 $ ls
 ~~~
-~~~ {.output}
+~~~ 
 creatures  molecules           pizza.cfg
 data       north-pacific-gyre  solar.pdf
 Desktop    notes.txt           writing
 ~~~
 
+<<<<<<< HEAD
 <img src="fig/vlad-homedir.png" alt="my Home Directory" />
+=======
+![Nelle's Home Directory](fig/homedir.svg)
+>>>>>>> upstream/gh-pages
 
 `ls` prints the names of the files and directories in the current directory in alphabetical order,
 arranged neatly into columns.
 We can make its output more comprehensible by using the **flag** `-F`,
 which tells `ls` to add a trailing `/` to the names of directories:
 
-~~~ {.input}
+~~~ 
 $ ls -F
 ~~~
-~~~ {.output}
+~~~ 
 creatures/  molecules/           pizza.cfg
 data/       north-pacific-gyre/  solar.pdf
 Desktop/    notes.txt            writing/
@@ -186,10 +198,10 @@ the command `ls` with the **arguments** `-F` and `data`.
 The second argument--the one *without* a leading dash--tells `ls` that
 we want a listing of something other than our current working directory:
 
-~~~ {.input}
+~~~ 
 $ ls -F data
 ~~~
-~~~ {.output}
+~~~ 
 amino-acids.txt   elements/     morse.txt
 pdb/              planets.txt   sunspot.txt
 ~~~
@@ -220,10 +232,10 @@ rather than from the root of the file system.
 If we run `ls -F /data` (*with* a leading slash) we get a different answer,
 because `/data` is an **absolute path**:
 
-~~~ {.input}
+~~~ 
 $ ls -F /data
 ~~~
-~~~ {.output}
+~~~ 
 access.log    backup/    hardware.cfg
 network.cfg
 ~~~
@@ -237,16 +249,16 @@ Before we do this,
 `pwd` shows us that we're in `/users/nelle`,
 and `ls` without any arguments shows us that directory's contents:
 
-~~~ {.input}
+~~~ 
 $ pwd
 ~~~
-~~~ {.output}
+~~~ 
 /users/nelle
 ~~~
-~~~ {.input}
+~~~ 
 $ ls
 ~~~
-~~~ {.output}
+~~~ 
 creatures  molecules           pizza.cfg
 data       north-pacific-gyre  solar.pdf
 Desktop    notes.txt           writing
@@ -258,7 +270,7 @@ which is a bit misleading:
 the command doesn't change the directory,
 it changes the shell's idea of what directory we are in.
 
-~~~ {.input}
+~~~ 
 $ cd data
 ~~~
 
@@ -268,16 +280,16 @@ If we run `ls` without arguments now,
 it lists the contents of `/users/nelle/data`,
 because that's where we now are:
 
-~~~ {.input}
+~~~ 
 $ pwd
 ~~~
-~~~ {.output}
+~~~ 
 /users/nelle/data
 ~~~
-~~~ {.input}
+~~~ 
 $ ls -F
 ~~~
-~~~ {.output}
+~~~ 
 amino-acids.txt   elements/     morse.txt
 pdb/              planets.txt   sunspot.txt
 ~~~
@@ -286,19 +298,19 @@ We now know how to go down the directory tree:
 how do we go up?
 We could use an absolute path:
 
-~~~ {.input}
+~~~ 
 $ cd /users/nelle
 ~~~
 
 but it's almost always simpler to use `cd ..` to go up one level:
 
-~~~ {.input}
+~~~ 
 $ pwd
 ~~~
-~~~ {.output}
+~~~ 
 /users/nelle/data
 ~~~
-~~~ {.input}
+~~~ 
 $ cd ..
 ~~~
 
@@ -309,24 +321,24 @@ the **parent** of the current directory.
 Sure enough,
 if we run `pwd` after running `cd ..`, we're back in `/users/nelle`:
 
-~~~ {.input}
+~~~ 
 $ pwd
 ~~~
-~~~ {.output}
+~~~ 
 /users/nelle
 ~~~
 
 The special directory `..` doesn't usually show up when we run `ls`.
 If we want to display it, we can give `ls` the `-a` flag:
 
-~~~ {.input}
+~~~ 
 $ ls -F -a
 ~~~
-~~~ {.output}
-./          Desktop/             pizza.cfg
-../         molecules/           solar.pdf
-creatures/  north-pacific-gyre/  writing/
-data/       notes.txt
+~~~ 
+./                  creatures/          notes.txt
+../                 data/               pizza.cfg
+.bash_profile       molecules/          solar.pdf
+Desktop/            north-pacific-gyre/ writing/
 ~~~
 
 `-a` stands for "show all";
@@ -336,7 +348,10 @@ As you can see,
 it also displays another special directory that's just called `.`,
 which means "the current working directory".
 It may seem redundant to have a name for it,
-but we'll see some uses for it soon.
+but we'll see some uses for it soon.  
+Finally, we also see a file called `.bash_profile`. This file usually contains settings to customize the shell (terminal). There may also be similar files called `.bashrc` or `.bash_login`. For this lesson material it does not contain any settings.
+
+
 
 > ## Orthogonality 
 > 
@@ -386,7 +401,7 @@ All 1520 files will go into the same directory.
 If she is in her home directory,
 Nelle can see what files she has using the command:
 
-~~~ {.input}
+~~~ 
 $ ls north-pacific-gyre/2012-07-03/
 ~~~
 
@@ -394,14 +409,14 @@ This is a lot to type,
 but she can let the shell do most of the work.
 If she types:
 
-~~~ {.input}
+~~~ 
 $ ls nor
 ~~~
 
 and then presses tab,
 the shell automatically completes the directory name for her:
 
-~~~ {.input}
+~~~ 
 $ ls north-pacific-gyre/
 ~~~
 
@@ -415,7 +430,11 @@ and so on.
 This is called **tab completion**,
 and we will see it in many other tools as we go on.
 
+<<<<<<< HEAD
 ## Use this file structure to complete the challenges below.
+=======
+![Filesystem for Challange Questions](fig/filesystem-challenge.svg)
+>>>>>>> upstream/gh-pages
 
 <img src="fig/filesystem-challenge.png" alt="Filesystem for Challenge Questions" />
 
@@ -435,22 +454,22 @@ and we will see it in many other tools as we go on.
 > what command will display:
 > 
 > ~~~
-> pnas-sub/ pnas-final/ original/
+> pnas_sub/ pnas_final/ original/
 > ~~~
 > 
 > 1.  `ls pwd`
 > 2.  `ls -r -F`
 > 3.  `ls -r -F /users/backup`
-> 4.  Either \#2 or \#3 above, but not \#1.
+> 4.  Either \#2 or \#3 above, but not \#1
 
 > ## Default `cd` action challenge
 >
 > What does the command `cd` without a directory name do?
 > 
-> 1.  It has no effect.
-> 2.  It changes the working directory to `/`.
-> 3.  It changes the working directory to the user's home directory.
-> 4.  It produces an error message.
+> 1.  It has no effect
+> 2.  It changes the working directory to `/`
+> 3.  It changes the working directory to the user's home directory
+> 4.  It produces an error message
 
 > ## Exploring more `ls` arguments challenge
 >
