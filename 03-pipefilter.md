@@ -7,7 +7,7 @@ minutes: 15
 > ## Learning Objectives
 >
 > *   Redirect a command's output to a file.
-> *   Process a file instead of keyboard input using redirection.
+> *   Process a file using redirection instead of keyboard.
 > *   Construct command pipelines with two or more stages.
 > *   Explain what usually happens if a program or pipeline isn't given any input to process.
 > *   Explain Unix's "small pieces, loosely joined" philosophy.
@@ -418,7 +418,7 @@ so this matches all the valid data files she has.
 
 > ## Piping commands together 
 >
-> In our current directory, we want to find the 3 files which have the least number of 
+> In our current directory, we want to find the 3 files that have the fewest 
 > lines. Which command listed below would work?
 >
 > 1. `wc -l * > sort -n > head -3`

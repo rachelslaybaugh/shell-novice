@@ -61,7 +61,7 @@ However, there's nothing in it yet:
 $ ls -F thesis
 ~~~
 
-Change the working directory to `thesis` using `cd`,
+Change the working directory to `thesis` using `cd`.
 Let's run a text editor called Nano to create a file called `draft.txt`:
 
 ~~~ {.input}
