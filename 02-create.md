@@ -61,28 +61,8 @@ However, there's nothing in it yet:
 $ ls -F thesis
 ~~~
 
-> ## Touching Files 
->
-> One of the simplest ways to create an empty file is via the `touch` command.
-> Change the working directory to `thesis` using `cd`,
-> then touch an empty file called `draft.txt`:
->
-> ~~~ {.input}
-> $ cd thesis
-> $ touch draft.txt
-> ~~~
->
-> If we check the directory contents now,
->
-> ~~~ {.input}
-> $ ls -F .
-> ~~~
-> ~~~ {.output}
-> draft.txt
-> ~~~
-
-Let's change our working directory to `thesis` using `cd`,
-then run a text editor called Nano to create a file called `draft.txt`:
+Change the working directory to `thesis` using `cd`,
+Let's run a text editor called Nano to create a file called `draft.txt`:
 
 ~~~ {.input}
 $ cd thesis
@@ -112,7 +92,7 @@ $ nano draft.txt
 Let's type in a few lines of text,
 then use Control-O to write our data to disk:
 
-rc="fig/nano-screenshot.png" alt="nano" />
+<img src="fig/nano-screenshot.png" alt="nano" />
 
 Once our file is saved,
 we can use Control-X to quit the editor and return to the shell.
