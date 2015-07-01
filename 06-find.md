@@ -203,7 +203,7 @@ to show how the simplest ones work, we'll use the directory tree shown below.
 
 Nelle's `writing` directory contains one file called `haiku.txt` and four subdirectories:
 `thesis` (which is sadly empty),
-`data` (which contains two files `one.txt` and `two.txt`),
+`data` (which contains two files, `one.txt` and `two.txt`),
 a `tools` directory that contains the programs `format` and `stats`,
 and an empty subdirectory called `old`.
 
@@ -267,8 +267,11 @@ $ find . -mindepth 2 -type f
 ~~~ 
 ./data/one.txt
 ./data/two.txt
-./tools/format
+./thesis/empty-draft.md
+./old/.my.log
 ./tools/stats
+./tools/old/oldtool
+./tools/format
 ~~~
 
 Now let's try matching by name:
@@ -437,7 +440,7 @@ $ grep FE $(find .. -name '*.pdb')
 > ## Matching `ose.dat` but not `temp` 
 > 
 > The `-v` flag to `grep` inverts pattern matching, so that only lines
-> which do *not* match the pattern are printed. Given that, which of
+> that do *not* match the pattern are printed. Given that, which of
 > the following commands will find all files in `/data` whose names
 > end in `ose.dat` (e.g., `sucrose.dat` or `maltose.dat`), but do
 > *not* contain the word `temp`?

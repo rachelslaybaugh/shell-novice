@@ -237,7 +237,7 @@ wc -l "$@" | sort -n
 ~~~
 
 you don't have to puzzle it out --- the comment at the top tells you what it does.
-A line or two of documentation like this make it much easier for other people
+A line or two of documentation like this makes it much easier for other people
 (including your future self)
 to re-use your work.
 The only caveat is that each time you modify the script,
